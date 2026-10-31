@@ -1,0 +1,17 @@
+models:
+  muse-spark:
+    model_id: muse-spark-1.3
+    base_url: https://api.meta.ai/v1
+    api_key_env: META_API_KEY
+  base:
+    model_id: meta-llama/Llama-3.1-8B-Instruct
+    base_url_env: BASE_MODEL_URL
+    api_key_env: MODAL_ENDPOINT_KEY
+  rojak-ft:
+    model_id: rojak-v1
+    base_url_env: FT_MODEL_URL
+    api_key_env: MODAL_ENDPOINT_KEY
+
+# Use a non-contributor model ID for anything that touches the gold set.
+# Contributor IDs let Meta train on your prompts and responses.
+teacher: muse-spark

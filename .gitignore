@@ -1,0 +1,17 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+data/synthetic/*.jsonl
+results/cache/
+wandb/
+node_modules/
+.next/
+results/runs/
+results/summary/oracle.json
+web/out/
+web/next-env.d.ts
+*.tsbuildinfo
+.DS_Store

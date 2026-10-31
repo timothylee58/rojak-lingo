@@ -1,0 +1,15 @@
+{"id": "intent-001", "task": "intent", "prompt": "Delivery dah 2 jam tapi food belum sampai lagi, what is this?!", "reference": "complaint", "languages": ["en", "ms"], "status": "draft"}
+{"id": "intent-002", "task": "intent", "prompt": "Hi, do you open on public holidays?", "reference": "inquiry", "languages": ["en"], "status": "draft"}
+{"id": "intent-003", "task": "intent", "prompt": "Wah the staff here very friendly, terbaik!", "reference": "praise", "languages": ["en", "ms"], "status": "draft"}
+{"id": "intent-004", "task": "intent", "prompt": "Can you please send me the invoice for my last order?", "reference": "request", "languages": ["en"], "status": "draft"}
+{"id": "intent-005", "task": "intent", "prompt": "你们几点关门啊? Got parking tak?", "reference": "inquiry", "languages": ["en", "ms", "zh"], "status": "draft"}
+{"id": "intent-006", "task": "intent", "prompt": "Terima kasih banyak, the food was sedap and arrived fast.", "reference": "praise", "languages": ["en", "ms"], "status": "draft"}
+{"id": "intent-007", "task": "intent", "prompt": "App keeps crashing every time I try to pay, teruk betul.", "reference": "complaint", "languages": ["en", "ms"], "status": "draft"}
+{"id": "intent-008", "task": "intent", "prompt": "Please reset my password, I can't log in.", "reference": "request", "languages": ["en"], "status": "draft"}
+{"id": "intent-009", "task": "intent", "prompt": "How much is the delivery fee to Subang Jaya ah?", "reference": "inquiry", "languages": ["en"], "status": "draft"}
+{"id": "intent-010", "task": "intent", "prompt": "服务真的很好,下次还会再来!", "reference": "praise", "languages": ["zh"], "status": "draft"}
+{"id": "intent-011", "task": "intent", "prompt": "Okay noted, thanks.", "reference": "other", "languages": ["en"], "status": "draft"}
+{"id": "intent-012", "task": "intent", "prompt": "Aiyo, my order missing one item again, third time already!", "reference": "complaint", "languages": ["en"], "status": "draft"}
+{"id": "intent-013", "task": "intent", "prompt": "Boleh I tukar delivery address to my office? Tolong ya.", "reference": "request", "languages": ["en", "ms"], "status": "draft"}
+{"id": "intent-014", "task": "intent", "prompt": "Is the nasi lemak halal-certified?", "reference": "inquiry", "languages": ["en", "ms"], "status": "draft"}
+{"id": "intent-015", "task": "intent", "prompt": "Just testing this chat, ignore me lah.", "reference": "other", "languages": ["en"], "status": "draft"}
