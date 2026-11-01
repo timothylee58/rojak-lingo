@@ -3,30 +3,78 @@
   "sample": true,
   "models": {
     "base": {
-      "model": "base", "created": "2026-01-01T00:00:00+00:00", "n_items": 50, "n_draft_items": 0,
+      "model": "base",
+      "created": "2026-01-01T00:00:00+00:00",
+      "n_items": 300,
+      "n_draft_items": 0,
       "metrics": {
-        "normalize": { "n": 15, "chrf": 0.46 },
-        "intent": { "n": 15, "accuracy": 0.6, "macro_f1": 0.55 },
-        "instruct": { "n": 10, "pass_rate": 0.4 },
-        "translate": { "n": 10, "chrf": 0.38 }
+        "normalize": {
+          "n": 75,
+          "chrf": 0.46
+        },
+        "intent": {
+          "n": 75,
+          "accuracy": 0.6,
+          "macro_f1": 0.55
+        },
+        "instruct": {
+          "n": 75,
+          "pass_rate": 0.4
+        },
+        "translate": {
+          "n": 75,
+          "chrf": 0.38
+        }
       }
     },
     "rojak-ft": {
-      "model": "rojak-ft", "created": "2026-01-01T00:00:00+00:00", "n_items": 50, "n_draft_items": 0,
+      "model": "rojak-ft",
+      "created": "2026-01-01T00:00:00+00:00",
+      "n_items": 300,
+      "n_draft_items": 0,
       "metrics": {
-        "normalize": { "n": 15, "chrf": 0.58 },
-        "intent": { "n": 15, "accuracy": 0.8, "macro_f1": 0.76 },
-        "instruct": { "n": 10, "pass_rate": 0.6 },
-        "translate": { "n": 10, "chrf": 0.44 }
+        "normalize": {
+          "n": 75,
+          "chrf": 0.58
+        },
+        "intent": {
+          "n": 75,
+          "accuracy": 0.8,
+          "macro_f1": 0.76
+        },
+        "instruct": {
+          "n": 75,
+          "pass_rate": 0.6
+        },
+        "translate": {
+          "n": 75,
+          "chrf": 0.44
+        }
       }
     },
     "muse-spark": {
-      "model": "muse-spark", "created": "2026-01-01T00:00:00+00:00", "n_items": 50, "n_draft_items": 0,
+      "model": "muse-spark",
+      "created": "2026-01-01T00:00:00+00:00",
+      "n_items": 300,
+      "n_draft_items": 0,
       "metrics": {
-        "normalize": { "n": 15, "chrf": 0.7 },
-        "intent": { "n": 15, "accuracy": 0.93, "macro_f1": 0.9 },
-        "instruct": { "n": 10, "pass_rate": 0.9 },
-        "translate": { "n": 10, "chrf": 0.62 }
+        "normalize": {
+          "n": 75,
+          "chrf": 0.7
+        },
+        "intent": {
+          "n": 75,
+          "accuracy": 0.93,
+          "macro_f1": 0.9
+        },
+        "instruct": {
+          "n": 75,
+          "pass_rate": 0.9
+        },
+        "translate": {
+          "n": 75,
+          "chrf": 0.62
+        }
       }
     }
   }

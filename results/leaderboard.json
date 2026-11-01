@@ -1,0 +1,30 @@
+{
+  "generated": "2026-11-01T12:07:32.524960+00:00",
+  "models": {
+    "muse-spark": {
+      "model": "muse-spark",
+      "created": "2026-11-01T12:07:19.874813+00:00",
+      "n_items": 300,
+      "n_draft_items": 0,
+      "metrics": {
+        "instruct": {
+          "n": 75.0,
+          "pass_rate": 1.0
+        },
+        "intent": {
+          "n": 75.0,
+          "accuracy": 0.9866666666666667,
+          "macro_f1": 0.9866518353726363
+        },
+        "normalize": {
+          "n": 75.0,
+          "chrf": 0.7201354338409319
+        },
+        "translate": {
+          "n": 75.0,
+          "chrf": 0.7547551665611697
+        }
+      }
+    }
+  }
+}

@@ -4,8 +4,7 @@ export default function Page() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-16">
       <header className="mb-10">
-        <p className="font-mono text-xs uppercase tracking-widest text-muted">Meta Global AI Developer Hackathon</p>
-        <h1 className="mt-2 text-4xl font-semibold tracking-tight sm:text-5xl">Rojak-Lingo</h1>
+        <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Rojak-Lingo</h1>
         <p className="mt-3 max-w-2xl text-lg text-muted">
           A benchmark for Malaysian code-switching across English, Bahasa Malaysia, Mandarin, Cantonese and Manglish,
           and a small fine-tune trained to close the gap.
@@ -18,6 +17,7 @@ export default function Page() {
           label match, normalize and translate by chrF against one reference. With a small gold set, treat gaps of a
           few points as noise.
         </p>
+        <p className="mt-3">Built for the Meta Global AI Developer Hackathon.</p>
       </footer>
     </main>
   );

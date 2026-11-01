@@ -21,3 +21,8 @@ export const MODELS: Record<string, { label: string; color: string }> = {
 };
 
 export const MODEL_ORDER = Object.keys(MODELS);
+
+// Unknown keys (e.g. a mock "oracle" run) get a neutral style instead of crashing.
+export function modelStyle(key: string): { label: string; color: string } {
+  return MODELS[key] ?? { label: key, color: "bg-muted" };
+}
