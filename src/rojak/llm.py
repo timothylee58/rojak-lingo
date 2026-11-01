@@ -10,7 +10,7 @@ from tenacity import retry, retry_if_exception, stop_after_attempt, wait_exponen
 
 class ChatClient(Protocol):
     def complete(
-        self, messages: list[dict[str, str]], *, temperature: float = 0.0, max_tokens: int = 512
+        self, messages: list[dict[str, str]], *, temperature: float = 0.0, max_tokens: int = 4096
     ) -> str: ...
 
 
@@ -41,7 +41,7 @@ class OpenAICompatClient:
         self._http = httpx.Client(timeout=timeout)
 
     def complete(
-        self, messages: list[dict[str, str]], *, temperature: float = 0.0, max_tokens: int = 512
+        self, messages: list[dict[str, str]], *, temperature: float = 0.0, max_tokens: int = 4096
     ) -> str:
         payload = {
             "model": self.model_id,
