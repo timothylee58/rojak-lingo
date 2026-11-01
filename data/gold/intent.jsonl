@@ -1,15 +1,75 @@
-{"id": "intent-001", "task": "intent", "prompt": "Delivery dah 2 jam tapi food belum sampai lagi, what is this?!", "reference": "complaint", "languages": ["en", "ms"], "status": "draft"}
-{"id": "intent-002", "task": "intent", "prompt": "Hi, do you open on public holidays?", "reference": "inquiry", "languages": ["en"], "status": "draft"}
-{"id": "intent-003", "task": "intent", "prompt": "Wah the staff here very friendly, terbaik!", "reference": "praise", "languages": ["en", "ms"], "status": "draft"}
-{"id": "intent-004", "task": "intent", "prompt": "Can you please send me the invoice for my last order?", "reference": "request", "languages": ["en"], "status": "draft"}
-{"id": "intent-005", "task": "intent", "prompt": "你们几点关门啊? Got parking tak?", "reference": "inquiry", "languages": ["en", "ms", "zh"], "status": "draft"}
-{"id": "intent-006", "task": "intent", "prompt": "Terima kasih banyak, the food was sedap and arrived fast.", "reference": "praise", "languages": ["en", "ms"], "status": "draft"}
-{"id": "intent-007", "task": "intent", "prompt": "App keeps crashing every time I try to pay, teruk betul.", "reference": "complaint", "languages": ["en", "ms"], "status": "draft"}
-{"id": "intent-008", "task": "intent", "prompt": "Please reset my password, I can't log in.", "reference": "request", "languages": ["en"], "status": "draft"}
-{"id": "intent-009", "task": "intent", "prompt": "How much is the delivery fee to Subang Jaya ah?", "reference": "inquiry", "languages": ["en"], "status": "draft"}
-{"id": "intent-010", "task": "intent", "prompt": "服务真的很好,下次还会再来!", "reference": "praise", "languages": ["zh"], "status": "draft"}
-{"id": "intent-011", "task": "intent", "prompt": "Okay noted, thanks.", "reference": "other", "languages": ["en"], "status": "draft"}
-{"id": "intent-012", "task": "intent", "prompt": "Aiyo, my order missing one item again, third time already!", "reference": "complaint", "languages": ["en"], "status": "draft"}
-{"id": "intent-013", "task": "intent", "prompt": "Boleh I tukar delivery address to my office? Tolong ya.", "reference": "request", "languages": ["en", "ms"], "status": "draft"}
-{"id": "intent-014", "task": "intent", "prompt": "Is the nasi lemak halal-certified?", "reference": "inquiry", "languages": ["en", "ms"], "status": "draft"}
-{"id": "intent-015", "task": "intent", "prompt": "Just testing this chat, ignore me lah.", "reference": "other", "languages": ["en"], "status": "draft"}
+{"id": "intent-001", "task": "intent", "prompt": "Delivery dah 2 jam tapi food belum sampai lagi, what is this?!", "reference": "complaint", "languages": ["en", "ms"], "status": "verified"}
+{"id": "intent-002", "task": "intent", "prompt": "Hi, do you open on public holidays?", "reference": "inquiry", "languages": ["en"], "status": "verified"}
+{"id": "intent-003", "task": "intent", "prompt": "Wah the staff here very friendly, terbaik!", "reference": "praise", "languages": ["en", "ms"], "status": "verified"}
+{"id": "intent-004", "task": "intent", "prompt": "Can you please send me the invoice for my last order?", "reference": "request", "languages": ["en"], "status": "verified"}
+{"id": "intent-005", "task": "intent", "prompt": "你们几点关门啊? Got parking tak?", "reference": "inquiry", "languages": ["en", "ms", "zh"], "status": "verified"}
+{"id": "intent-006", "task": "intent", "prompt": "Terima kasih banyak, the food was sedap and arrived fast.", "reference": "praise", "languages": ["en", "ms"], "status": "verified"}
+{"id": "intent-007", "task": "intent", "prompt": "App keeps crashing every time I try to pay, teruk betul.", "reference": "complaint", "languages": ["en", "ms"], "status": "verified"}
+{"id": "intent-008", "task": "intent", "prompt": "Please reset my password, I can't log in.", "reference": "request", "languages": ["en"], "status": "verified"}
+{"id": "intent-009", "task": "intent", "prompt": "How much is the delivery fee to Subang Jaya ah?", "reference": "inquiry", "languages": ["en"], "status": "verified"}
+{"id": "intent-010", "task": "intent", "prompt": "服务真的很好,下次还会再来!", "reference": "praise", "languages": ["zh"], "status": "verified"}
+{"id": "intent-011", "task": "intent", "prompt": "Okay noted, thanks.", "reference": "other", "languages": ["en"], "status": "verified"}
+{"id": "intent-012", "task": "intent", "prompt": "Aiyo, my order missing one item again, third time already!", "reference": "complaint", "languages": ["en"], "status": "verified"}
+{"id": "intent-013", "task": "intent", "prompt": "Boleh I tukar delivery address to my office? Tolong ya.", "reference": "request", "languages": ["en", "ms"], "status": "verified"}
+{"id": "intent-014", "task": "intent", "prompt": "Is the nasi lemak halal-certified?", "reference": "inquiry", "languages": ["en", "ms"], "status": "verified"}
+{"id": "intent-015", "task": "intent", "prompt": "Just testing this chat, ignore me lah.", "reference": "other", "languages": ["en"], "status": "verified"}
+{"id": "intent-016", "task": "intent", "prompt": "The Grab driver cancelled on me twice, now I'm late for my interview. So frustrating!", "reference": "complaint", "languages": ["en"], "status": "verified", "meta": {}}
+{"id": "intent-017", "task": "intent", "prompt": "Aircond dalam bilik ni rosak lagi, panas gila. Dah complain banyak kali dah!", "reference": "complaint", "languages": ["ms", "en"], "status": "verified", "meta": {}}
+{"id": "intent-018", "task": "intent", "prompt": "My parcel arrived pecah, the box koyak teruk. Very disappointed lah.", "reference": "complaint", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-019", "task": "intent", "prompt": "Kenapa line internet slow sangat malam ni? Cannot even load email!", "reference": "complaint", "languages": ["ms", "en"], "status": "verified", "meta": {}}
+{"id": "intent-020", "task": "intent", "prompt": "Waiter forgot our order, dah tunggu 45 minit. Service teruk betul.", "reference": "complaint", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-021", "task": "intent", "prompt": "这家店的东西又贵又难吃,以后再也不来了!", "reference": "complaint", "languages": ["zh"], "status": "verified", "meta": {}}
+{"id": "intent-022", "task": "intent", "prompt": "ATM telan my card and customer service tak angkat phone. What kind of bank is this?", "reference": "complaint", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-023", "task": "intent", "prompt": "The chicken rice portion makin kecil but price naik. Not worth it anymore.", "reference": "complaint", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-024", "task": "intent", "prompt": "My flight delayed 5 hours with zero announcement. Worst airline experience ever.", "reference": "complaint", "languages": ["en"], "status": "verified", "meta": {}}
+{"id": "intent-025", "task": "intent", "prompt": "Baju yang I order online tak sama langsung dengan gambar. Rasa kena tipu!", "reference": "complaint", "languages": ["ms", "en"], "status": "verified", "meta": {}}
+{"id": "intent-026", "task": "intent", "prompt": "The toilet here kotor gila, no tissue, no soap. How to use?!", "reference": "complaint", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-027", "task": "intent", "prompt": "邻居每天晚上装修到半夜,实在太过分了!", "reference": "complaint", "languages": ["zh"], "status": "verified", "meta": {}}
+{"id": "intent-028", "task": "intent", "prompt": "What time does the museum open on weekends?", "reference": "inquiry", "languages": ["en"], "status": "verified", "meta": {}}
+{"id": "intent-029", "task": "intent", "prompt": "Ada discount tak kalau bayar dengan e-wallet?", "reference": "inquiry", "languages": ["ms", "en"], "status": "verified", "meta": {}}
+{"id": "intent-030", "task": "intent", "prompt": "请问从KL Sentral去机场要多久?", "reference": "inquiry", "languages": ["zh"], "status": "verified", "meta": {}}
+{"id": "intent-031", "task": "intent", "prompt": "Is this restaurant pork-free? My friend cannot eat pork.", "reference": "inquiry", "languages": ["en"], "status": "verified", "meta": {}}
+{"id": "intent-032", "task": "intent", "prompt": "Berapa lama warranty untuk laptop ni?", "reference": "inquiry", "languages": ["ms", "en"], "status": "verified", "meta": {}}
+{"id": "intent-033", "task": "intent", "prompt": "Do you provide delivery to Sabah and Sarawak?", "reference": "inquiry", "languages": ["en"], "status": "verified", "meta": {}}
+{"id": "intent-034", "task": "intent", "prompt": "这个配套包不包住宿和早餐?", "reference": "inquiry", "languages": ["zh"], "status": "verified", "meta": {}}
+{"id": "intent-035", "task": "intent", "prompt": "Macam mana nak apply for the parking sticker ah?", "reference": "inquiry", "languages": ["ms", "en"], "status": "verified", "meta": {}}
+{"id": "intent-036", "task": "intent", "prompt": "Which platform for the KTM to Port Klang?", "reference": "inquiry", "languages": ["en"], "status": "verified", "meta": {}}
+{"id": "intent-037", "task": "intent", "prompt": "Boleh tahu tak doktor gigi mana yang bagus kat area ni?", "reference": "inquiry", "languages": ["ms"], "status": "verified", "meta": {}}
+{"id": "intent-038", "task": "intent", "prompt": "几点有巴士去云顶?还有位吗?", "reference": "inquiry", "languages": ["zh"], "status": "verified", "meta": {}}
+{"id": "intent-039", "task": "intent", "prompt": "The rendang here is amazing, confirm repeat order!", "reference": "praise", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-040", "task": "intent", "prompt": "Terima kasih, customer service very helpful and patient.", "reference": "praise", "languages": ["ms", "en"], "status": "verified", "meta": {}}
+{"id": "intent-041", "task": "intent", "prompt": "Five stars! Bilik bersih, staff friendly, location pun best.", "reference": "praise", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-042", "task": "intent", "prompt": "老板人很好,东西又便宜,介绍朋友来!", "reference": "praise", "languages": ["zh"], "status": "verified", "meta": {}}
+{"id": "intent-043", "task": "intent", "prompt": "Super impressed with the fast delivery, sampai within one hour!", "reference": "praise", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-044", "task": "intent", "prompt": "Cikgu ajar very clear, my son's BM improved a lot.", "reference": "praise", "languages": ["ms", "en"], "status": "verified", "meta": {}}
+{"id": "intent-045", "task": "intent", "prompt": "Beautiful decoration, rasa macam kat Bali. Love this cafe!", "reference": "praise", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-046", "task": "intent", "prompt": "The mechanic fixed my car cepat and charged reasonably. Recommended!", "reference": "praise", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-047", "task": "intent", "prompt": "这家诊所的医生很细心,解释得很清楚!", "reference": "praise", "languages": ["zh"], "status": "verified", "meta": {}}
+{"id": "intent-048", "task": "intent", "prompt": "Best nasi kandar outside Penang, kuah banjir memang power!", "reference": "praise", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-049", "task": "intent", "prompt": "Your team handled the event perfectly from start to finish. Syabas!", "reference": "praise", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-050", "task": "intent", "prompt": "App senang guna, payment smooth je. Good job developers!", "reference": "praise", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-051", "task": "intent", "prompt": "Please send the quotation to my email by tomorrow morning.", "reference": "request", "languages": ["en"], "status": "verified", "meta": {}}
+{"id": "intent-052", "task": "intent", "prompt": "Tolong book meja untuk 6 orang malam ni pukul 8.", "reference": "request", "languages": ["ms"], "status": "verified", "meta": {}}
+{"id": "intent-053", "task": "intent", "prompt": "Can you help me carry this bag upstairs? Berat sangat.", "reference": "request", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-054", "task": "intent", "prompt": "麻烦帮我拿一份菜单,谢谢!", "reference": "request", "languages": ["zh"], "status": "verified", "meta": {}}
+{"id": "intent-055", "task": "intent", "prompt": "Please extend my checkout to 2pm if possible.", "reference": "request", "languages": ["en"], "status": "verified", "meta": {}}
+{"id": "intent-056", "task": "intent", "prompt": "Boleh bagi resit tak? I need to claim from company.", "reference": "request", "languages": ["ms", "en"], "status": "verified", "meta": {}}
+{"id": "intent-057", "task": "intent", "prompt": "Kindly cancel my appointment this Friday and reschedule to next week.", "reference": "request", "languages": ["en"], "status": "verified", "meta": {}}
+{"id": "intent-058", "task": "intent", "prompt": "帮我跟老板说我要请假两天,可以吗?", "reference": "request", "languages": ["zh"], "status": "verified", "meta": {}}
+{"id": "intent-059", "task": "intent", "prompt": "Can I tapau extra sambal for the nasi lemak? Bayar extra pun takpe.", "reference": "request", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-060", "task": "intent", "prompt": "Tolong hantar my luggage to room 1208 when ready.", "reference": "request", "languages": ["ms", "en"], "status": "verified", "meta": {}}
+{"id": "intent-061", "task": "intent", "prompt": "Please turn down the aircond, sejuk sangat here.", "reference": "request", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-062", "task": "intent", "prompt": "Please keep my seat, I go toilet sekejap.", "reference": "request", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-063", "task": "intent", "prompt": "Haha okay lor, see you tomorrow.", "reference": "other", "languages": ["en"], "status": "verified", "meta": {}}
+{"id": "intent-064", "task": "intent", "prompt": "Eh sorry wrong chat, ignore that.", "reference": "other", "languages": ["en"], "status": "verified", "meta": {}}
+{"id": "intent-065", "task": "intent", "prompt": "Hari ni cuaca panas gila kat luar.", "reference": "other", "languages": ["ms"], "status": "verified", "meta": {}}
+{"id": "intent-066", "task": "intent", "prompt": "Just sharing: the Twin Towers lit up nicely tonight.", "reference": "other", "languages": ["en"], "status": "verified", "meta": {}}
+{"id": "intent-067", "task": "intent", "prompt": "哈哈哈你太好笑了!", "reference": "other", "languages": ["zh"], "status": "verified", "meta": {}}
+{"id": "intent-068", "task": "intent", "prompt": "Okay can, I update you later ya.", "reference": "other", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-069", "task": "intent", "prompt": "Selamat pagi semua, happy Monday!", "reference": "other", "languages": ["ms", "en"], "status": "verified", "meta": {}}
+{"id": "intent-070", "task": "intent", "prompt": "Test test, can you hear me?", "reference": "other", "languages": ["en"], "status": "verified", "meta": {}}
+{"id": "intent-071", "task": "intent", "prompt": "今天心情不错,去喝杯咖啡先。", "reference": "other", "languages": ["zh"], "status": "verified", "meta": {}}
+{"id": "intent-072", "task": "intent", "prompt": "Alamak I forgot to bring my wallet lah.", "reference": "other", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-073", "task": "intent", "prompt": "Bye everyone, jumpa lagi next week!", "reference": "other", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-074", "task": "intent", "prompt": "Reminder to self: beli telur dan roti later.", "reference": "other", "languages": ["en", "ms"], "status": "verified", "meta": {}}
+{"id": "intent-075", "task": "intent", "prompt": "Wow hujan lebat gila outside, nasib baik dah sampai rumah.", "reference": "other", "languages": ["ms", "en"], "status": "verified", "meta": {}}
