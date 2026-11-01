@@ -1,1 +1,37 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #faf7f2;
+  --fg: #1c1917;
+  --muted: #6b645e;
+  --card: #ffffff;
+  --border: #e7e2da;
+  --base: #a8a29e;
+  --ft: #c2410c;
+  --ref: #2563eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c0a09;
+    --fg: #fafaf9;
+    --muted: #a8a29e;
+    --card: #1c1917;
+    --border: #2b2724;
+    --base: #78716c;
+    --ft: #fb923c;
+    --ref: #60a5fa;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ft);
+  outline-offset: 2px;
+}

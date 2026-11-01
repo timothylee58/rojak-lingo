@@ -1,14 +1,15 @@
+import type { Metadata } from "next";
 import "./globals.css";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Rojak-Lingo Leaderboard",
-  description: "Malaysian code-switching benchmark: base vs fine-tune vs Muse Spark",
+  description: "How well do language models handle Malaysian code-switching?",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-neutral-50 text-neutral-900 antialiased">{children}</body>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }

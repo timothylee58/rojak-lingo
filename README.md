@@ -44,6 +44,24 @@ make train                      # Modal GPU, needs the rojak-secrets Modal secre
 make eval && make report
 ```
 
+## Serving the fine-tune
+One Modal endpoint serves both models with vLLM: `model=meta-llama/Llama-3.1-8B-Instruct` is the base, `model=rojak-v1` applies the LoRA adapter. That keeps the comparison on identical hardware and settings.
+```bash
+modal secret create rojak-secrets HF_TOKEN=... WANDB_API_KEY=... MODAL_ENDPOINT_KEY=<random string>
+make deploy-serve               # prints the endpoint URL
+# put the URL + /v1 in BASE_MODEL_URL and FT_MODEL_URL, same key in MODAL_ENDPOINT_KEY
+python -m rojak.eval.runner --models base,rojak-ft --limit 5     # smoke test
+```
+The endpoint scales to zero after 5 idle minutes. First request after idle takes several minutes (model load).
+
+## Leaderboard
+Static Next.js site in `web/`, reading `leaderboard.json` at runtime so results can change without a rebuild.
+```bash
+make eval && make report && make web-data
+make web-dev                    # add ?sample to the URL to preview with placeholder data
+```
+Deploy `web/out` (from `npm run build`) to any static host.
+
 ## Integrity rules
 - Gold items never go into any prompt sent to the teacher.
 - Instruct training answers are kept only if they pass their own checks.
@@ -51,8 +69,8 @@ make eval && make report
 - Gold items start as `draft`. Review each one and set `"status": "verified"`; the runner records how many drafts were scored.
 
 ## Status
-- Tested offline: schema, metrics, dedupe, contamination, generation, runner.
-- Not yet run: live Meta API calls, Modal training, endpoint serving. Treat `train/modal_train.py` as untested until the first run.
+- Tested offline: schema, metrics, dedupe, contamination, generation, runner. Leaderboard builds and renders (checked at desktop and phone width).
+- Import-checked only: `train/modal_train.py`, `train/modal_serve.py`. Not yet run: live Meta API calls, Modal training, endpoint serving. Expect to fix small issues on the first real run (vLLM flags and TRL arguments change between versions).
 
 ## Limitations
 - One reference per gold item, so chrF undercounts valid paraphrases.

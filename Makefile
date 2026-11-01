@@ -1,4 +1,4 @@
-.PHONY: setup test lint gold datagen check train eval report web
+.PHONY: setup test lint gold datagen check train serve deploy-serve eval report web-data web-dev web-build
 
 setup:
 	uv sync --extra dev --extra train
@@ -21,11 +21,23 @@ check:
 train:
 	uv run modal run src/rojak/train/modal_train.py
 
+serve:
+	uv run modal serve src/rojak/train/modal_serve.py
+
+deploy-serve:
+	uv run modal deploy src/rojak/train/modal_serve.py
+
 eval:
 	uv run python -m rojak.eval.runner --models all
 
 report:
 	uv run python -m rojak.report.build
 
-web:
-	uv run python -m rojak.report.build && cd web && npm install && npm run build
+web-data:
+	cp results/leaderboard.json web/public/leaderboard.json
+
+web-dev:
+	cd web && npm install && npm run dev
+
+web-build:
+	cd web && npm ci && npm run build

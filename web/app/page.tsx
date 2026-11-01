@@ -1,57 +1,24 @@
-import { TASKS, loadLeaderboard } from "./leaderboard";
+import { Leaderboard } from "@/components/leaderboard";
 
 export default function Page() {
-  const board = loadLeaderboard();
-  const models = board ? Object.values(board.models) : [];
-
   return (
-    <main className="mx-auto max-w-4xl px-4 py-12">
-      <h1 className="text-3xl font-semibold">Rojak-Lingo</h1>
-      <p className="mt-2 text-neutral-600">
-        Malaysian code-switching benchmark. Same prompts, same metrics, every model.
-      </p>
-
-      {models.length === 0 ? (
-        <p className="mt-8 rounded border border-dashed p-6 text-neutral-500">
-          No results yet. Run <code>make eval &amp;&amp; make report</code>.
+    <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-16">
+      <header className="mb-10">
+        <p className="font-mono text-xs uppercase tracking-widest text-muted">Meta Global AI Developer Hackathon</p>
+        <h1 className="mt-2 text-4xl font-semibold tracking-tight sm:text-5xl">Rojak-Lingo</h1>
+        <p className="mt-3 max-w-2xl text-lg text-muted">
+          A benchmark for Malaysian code-switching across English, Bahasa Malaysia, Mandarin, Cantonese and Manglish,
+          and a small fine-tune trained to close the gap.
         </p>
-      ) : (
-        <div className="mt-8 overflow-x-auto">
-          <table className="w-full text-left text-sm">
-            <thead className="border-b text-neutral-500">
-              <tr>
-                <th className="py-2 pr-4">Model</th>
-                {TASKS.map((t) => (
-                  <th key={t.task} className="py-2 pr-4">{t.label}</th>
-                ))}
-                <th className="py-2">Items</th>
-              </tr>
-            </thead>
-            <tbody>
-              {models.map((m) => (
-                <tr key={m.model} className="border-b last:border-0">
-                  <td className="py-2 pr-4 font-medium">{m.model}</td>
-                  {TASKS.map((t) => {
-                    const v = m.metrics[t.task]?.[t.metric];
-                    return (
-                      <td key={t.task} className="py-2 pr-4 tabular-nums">
-                        {v === undefined ? "–" : v.toFixed(3)}
-                      </td>
-                    );
-                  })}
-                  <td className="py-2 tabular-nums">
-                    {m.n_items}
-                    {m.n_draft_items > 0 && (
-                      <span className="ml-1 text-amber-600">({m.n_draft_items} draft)</span>
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <p className="mt-4 text-xs text-neutral-500">Generated {board!.generated}</p>
-        </div>
-      )}
+      </header>
+      <Leaderboard />
+      <footer className="mt-16 border-t border-line pt-6 text-sm text-muted">
+        <p>
+          Gold items are hand-written and held out from training. Instruct is scored by programmatic checks, intent by
+          label match, normalize and translate by chrF against one reference. With a small gold set, treat gaps of a
+          few points as noise.
+        </p>
+      </footer>
     </main>
   );
 }
