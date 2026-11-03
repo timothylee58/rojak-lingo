@@ -1,0 +1,41 @@
+import subprocess
+
+import modal
+
+# Llama-family SEA-specific instruct model, comparable in size to the Llama-3.1 base.
+BASE_MODEL = "aisingapore/Llama-SEA-LION-v3-8B-IT"
+PORT = 8000
+
+app = modal.App("rojak-serve-sealion")
+# CUDA devel image: flashinfer JIT-compiles kernels at startup and needs nvcc,
+# which the slim image lacks (engine init fails without it).
+image = modal.Image.from_registry(
+    "nvidia/cuda:12.8.0-devel-ubuntu22.04", add_python="3.12"
+).pip_install("vllm", "huggingface_hub")
+volume = modal.Volume.from_name("rojak-out", create_if_missing=True)
+# Weights are cached on a volume so a cold start does not re-download the base model.
+hf_cache = modal.Volume.from_name("rojak-hf-cache", create_if_missing=True)
+
+
+@app.function(
+    image=image,
+    gpu="H100",
+    volumes={"/out": volume, "/root/.cache/huggingface": hf_cache},
+    secrets=[modal.Secret.from_name("rojak-secrets")],
+    # Scale to zero between eval runs so idle time does not burn credits.
+    scaledown_window=300,
+    timeout=60 * 60,
+)
+@modal.concurrent(max_inputs=32)
+@modal.web_server(port=PORT, startup_timeout=15 * 60)
+def serve() -> None:
+    import os
+
+    cmd = [
+        "vllm", "serve", BASE_MODEL,
+        "--host", "0.0.0.0",
+        "--port", str(PORT),
+        "--max-model-len", "8192",
+        "--api-key", os.environ["MODAL_ENDPOINT_KEY"],
+    ]
+    subprocess.Popen(cmd)

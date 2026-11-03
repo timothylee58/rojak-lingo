@@ -18,6 +18,7 @@ export const MODELS: Record<string, { label: string; color: string }> = {
   base: { label: "Base model", color: "bg-base" },
   "base-fs": { label: "Base + few-shot", color: "bg-fs" },
   "rojak-ft": { label: "Rojak-Lingo fine-tune", color: "bg-ft" },
+  "sea-lion": { label: "SEA-LION 8B", color: "bg-sea" },
   "muse-spark": { label: "Muse Spark (reference)", color: "bg-ref" },
 };
 

@@ -12,6 +12,7 @@ const config: Config = {
         line: "var(--border)",
         base: "var(--base)",
         fs: "var(--fs)",
+        sea: "var(--sea)",
         ft: "var(--ft)",
         ref: "var(--ref)",
       },

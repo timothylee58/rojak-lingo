@@ -3,6 +3,10 @@ models:
     model_id: muse-spark-1.3
     base_url: https://api.meta.ai/v1
     api_key_env: META_API_KEY
+  sea-lion:
+    model_id: hf.co/aisingapore/Llama-SEA-LION-v3-8B-IT-GGUF:Q4_K_M
+    base_url: http://localhost:11434/v1
+    api_key_env: MODAL_ENDPOINT_KEY
   base:
     model_id: meta-llama/Llama-3.1-8B-Instruct
     base_url_env: BASE_MODEL_URL
