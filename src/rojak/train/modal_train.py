@@ -6,8 +6,17 @@ import modal
 GPU = "H100"
 
 app = modal.App("rojak-train")
+# Pinned to the versions in uv.lock so the remote env matches the locally verified API.
+# bitsandbytes has no macOS build, so it is intentionally absent from the lock.
 image = modal.Image.debian_slim(python_version="3.12").pip_install(
-    "torch", "transformers", "peft", "trl", "datasets", "bitsandbytes", "accelerate", "wandb"
+    "torch==2.15.0",
+    "transformers==5.22.1",
+    "peft==0.21.2",
+    "trl==1.17.1",
+    "datasets==5.1.0",
+    "bitsandbytes",
+    "accelerate==1.15.0",
+    "wandb==0.31.0",
 )
 volume = modal.Volume.from_name("rojak-out", create_if_missing=True)
 
@@ -45,6 +54,13 @@ def train(rows: list[dict], cfg: dict, run_name: str) -> str:
         target_modules="all-linear",
         task_type="CAUSAL_LM",
     )
+    # transformers 5.x dropped warmup_ratio; warm up 3% of total optimizer steps instead.
+    total_steps = max(
+        1,
+        len(rows)
+        * cfg["train"]["epochs"]
+        // (cfg["train"]["batch_size"] * cfg["train"]["grad_accum"]),
+    )
     args = SFTConfig(
         output_dir=f"/out/{run_name}",
         num_train_epochs=cfg["train"]["epochs"],
@@ -52,7 +68,7 @@ def train(rows: list[dict], cfg: dict, run_name: str) -> str:
         gradient_accumulation_steps=cfg["train"]["grad_accum"],
         learning_rate=cfg["train"]["learning_rate"],
         lr_scheduler_type="cosine",
-        warmup_ratio=0.03,
+        warmup_steps=max(1, int(total_steps * 0.03)),
         logging_steps=10,
         save_strategy="epoch",
         bf16=True,

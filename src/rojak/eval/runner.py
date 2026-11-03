@@ -22,9 +22,11 @@ def oracle_output(item: Item) -> str:
     return " ".join([checks.get("starts_with", ""), *checks.get("must_include", [])]).strip()
 
 
-def run_model(name: str, complete, items: list[Item], workers: int = 8) -> dict[str, str]:
+def run_model(
+    name: str, complete, items: list[Item], workers: int = 8, style: str = "zero"
+) -> dict[str, str]:
     def one(item: Item) -> tuple[str, str]:
-        return item.id, complete(build_messages(item.task, item.prompt))
+        return item.id, complete(build_messages(item.task, item.prompt, style))
 
     with ThreadPoolExecutor(max_workers=workers) as pool:
         return dict(pool.map(one, items))
@@ -63,7 +65,8 @@ def main(
             outputs = by_id
         else:
             client = build_client(cfg["models"][name], out_dir / "cache")
-            outputs = run_model(name, lambda m, c=client: c.complete(m), items)
+            style = cfg["models"][name].get("prompt_style", "zero")
+            outputs = run_model(name, lambda m, c=client: c.complete(m), items, style=style)
 
         write_jsonl(
             out_dir / "runs" / f"{name}.jsonl",

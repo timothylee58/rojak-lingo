@@ -1,6 +1,56 @@
 {
-  "generated": "2026-11-01T12:07:32.524960+00:00",
+  "generated": "2026-11-02T12:16:28.780813+00:00",
   "models": {
+    "base-fs": {
+      "model": "base-fs",
+      "created": "2026-11-02T09:55:11.834620+00:00",
+      "n_items": 300,
+      "n_draft_items": 0,
+      "metrics": {
+        "instruct": {
+          "n": 75.0,
+          "pass_rate": 0.88
+        },
+        "intent": {
+          "n": 75.0,
+          "accuracy": 0.9733333333333334,
+          "macro_f1": 0.9728110599078341
+        },
+        "normalize": {
+          "n": 75.0,
+          "chrf": 0.6014483159300685
+        },
+        "translate": {
+          "n": 75.0,
+          "chrf": 0.5828559023915756
+        }
+      }
+    },
+    "base": {
+      "model": "base",
+      "created": "2026-11-01T16:15:44.902650+00:00",
+      "n_items": 300,
+      "n_draft_items": 0,
+      "metrics": {
+        "instruct": {
+          "n": 75.0,
+          "pass_rate": 0.7733333333333333
+        },
+        "intent": {
+          "n": 75.0,
+          "accuracy": 0.88,
+          "macro_f1": 0.8836559513283652
+        },
+        "normalize": {
+          "n": 75.0,
+          "chrf": 0.26325747251975523
+        },
+        "translate": {
+          "n": 75.0,
+          "chrf": 0.5803232155039217
+        }
+      }
+    },
     "muse-spark": {
       "model": "muse-spark",
       "created": "2026-11-01T12:07:19.874813+00:00",
@@ -23,6 +73,31 @@
         "translate": {
           "n": 75.0,
           "chrf": 0.7547551665611697
+        }
+      }
+    },
+    "rojak-ft": {
+      "model": "rojak-ft",
+      "created": "2026-11-02T12:15:53.269658+00:00",
+      "n_items": 300,
+      "n_draft_items": 0,
+      "metrics": {
+        "instruct": {
+          "n": 75.0,
+          "pass_rate": 0.7733333333333333
+        },
+        "intent": {
+          "n": 75.0,
+          "accuracy": 1.0,
+          "macro_f1": 1.0
+        },
+        "normalize": {
+          "n": 75.0,
+          "chrf": 0.5962168903375958
+        },
+        "translate": {
+          "n": 75.0,
+          "chrf": 0.5974790515938628
         }
       }
     }

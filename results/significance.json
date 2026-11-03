@@ -1,0 +1,222 @@
+{
+  "models": [
+    "base",
+    "base-fs",
+    "muse-spark",
+    "rojak-ft"
+  ],
+  "tasks": {
+    "normalize": {
+      "base vs base-fs": {
+        "n": 75,
+        "mean_a": 0.26325747251975523,
+        "mean_b": 0.6014483159300685,
+        "diff": -0.3381908434103133,
+        "ci_lo": -0.3988992497991595,
+        "ci_hi": -0.27853484628410247,
+        "significant": true
+      },
+      "base vs muse-spark": {
+        "n": 75,
+        "mean_a": 0.26325747251975523,
+        "mean_b": 0.7201354338409319,
+        "diff": -0.4568779613211767,
+        "ci_lo": -0.5181812658741098,
+        "ci_hi": -0.39587711720683694,
+        "significant": true
+      },
+      "base vs rojak-ft": {
+        "n": 75,
+        "mean_a": 0.26325747251975523,
+        "mean_b": 0.5962168903375958,
+        "diff": -0.3329594178178406,
+        "ci_lo": -0.38792764038229494,
+        "ci_hi": -0.27978520134151635,
+        "significant": true
+      },
+      "base-fs vs muse-spark": {
+        "n": 75,
+        "mean_a": 0.6014483159300685,
+        "mean_b": 0.7201354338409319,
+        "diff": -0.1186871179108634,
+        "ci_lo": -0.15977786836820967,
+        "ci_hi": -0.07802570607730058,
+        "significant": true
+      },
+      "base-fs vs rojak-ft": {
+        "n": 75,
+        "mean_a": 0.6014483159300685,
+        "mean_b": 0.5962168903375958,
+        "diff": 0.005231425592472694,
+        "ci_lo": -0.027400478377086285,
+        "ci_hi": 0.037301782921543764,
+        "significant": false
+      },
+      "muse-spark vs rojak-ft": {
+        "n": 75,
+        "mean_a": 0.7201354338409319,
+        "mean_b": 0.5962168903375958,
+        "diff": 0.12391854350333609,
+        "ci_lo": 0.08803050228014365,
+        "ci_hi": 0.1608907365143487,
+        "significant": true
+      }
+    },
+    "intent": {
+      "base vs base-fs": {
+        "n": 75,
+        "mean_a": 0.88,
+        "mean_b": 0.9733333333333334,
+        "diff": -0.09333333333333338,
+        "mcnemar_p": 0.0654296875,
+        "significant": false
+      },
+      "base vs muse-spark": {
+        "n": 75,
+        "mean_a": 0.88,
+        "mean_b": 0.9866666666666667,
+        "diff": -0.10666666666666669,
+        "mcnemar_p": 0.0078125,
+        "significant": true
+      },
+      "base vs rojak-ft": {
+        "n": 75,
+        "mean_a": 0.88,
+        "mean_b": 1.0,
+        "diff": -0.12,
+        "mcnemar_p": 0.00390625,
+        "significant": true
+      },
+      "base-fs vs muse-spark": {
+        "n": 75,
+        "mean_a": 0.9733333333333334,
+        "mean_b": 0.9866666666666667,
+        "diff": -0.013333333333333308,
+        "mcnemar_p": 1.0,
+        "significant": false
+      },
+      "base-fs vs rojak-ft": {
+        "n": 75,
+        "mean_a": 0.9733333333333334,
+        "mean_b": 1.0,
+        "diff": -0.026666666666666616,
+        "mcnemar_p": 0.5,
+        "significant": false
+      },
+      "muse-spark vs rojak-ft": {
+        "n": 75,
+        "mean_a": 0.9866666666666667,
+        "mean_b": 1.0,
+        "diff": -0.013333333333333308,
+        "mcnemar_p": 1.0,
+        "significant": false
+      }
+    },
+    "instruct": {
+      "base vs base-fs": {
+        "n": 75,
+        "mean_a": 0.7733333333333333,
+        "mean_b": 0.88,
+        "diff": -0.10666666666666669,
+        "mcnemar_p": 0.0078125,
+        "significant": true
+      },
+      "base vs muse-spark": {
+        "n": 75,
+        "mean_a": 0.7733333333333333,
+        "mean_b": 1.0,
+        "diff": -0.22666666666666668,
+        "mcnemar_p": 1.52587890625e-05,
+        "significant": true
+      },
+      "base vs rojak-ft": {
+        "n": 75,
+        "mean_a": 0.7733333333333333,
+        "mean_b": 0.7733333333333333,
+        "diff": 0.0,
+        "mcnemar_p": 1.0,
+        "significant": false
+      },
+      "base-fs vs muse-spark": {
+        "n": 75,
+        "mean_a": 0.88,
+        "mean_b": 1.0,
+        "diff": -0.12,
+        "mcnemar_p": 0.00390625,
+        "significant": true
+      },
+      "base-fs vs rojak-ft": {
+        "n": 75,
+        "mean_a": 0.88,
+        "mean_b": 0.7733333333333333,
+        "diff": 0.10666666666666669,
+        "mcnemar_p": 0.09625244140625,
+        "significant": false
+      },
+      "muse-spark vs rojak-ft": {
+        "n": 75,
+        "mean_a": 1.0,
+        "mean_b": 0.7733333333333333,
+        "diff": 0.22666666666666668,
+        "mcnemar_p": 1.52587890625e-05,
+        "significant": true
+      }
+    },
+    "translate": {
+      "base vs base-fs": {
+        "n": 75,
+        "mean_a": 0.5803232155039217,
+        "mean_b": 0.5828559023915756,
+        "diff": -0.0025326868876538455,
+        "ci_lo": -0.037639327958077486,
+        "ci_hi": 0.03452742832891073,
+        "significant": false
+      },
+      "base vs muse-spark": {
+        "n": 75,
+        "mean_a": 0.5803232155039217,
+        "mean_b": 0.7547551665611697,
+        "diff": -0.17443195105724796,
+        "ci_lo": -0.23288540216735357,
+        "ci_hi": -0.1194580582144472,
+        "significant": true
+      },
+      "base vs rojak-ft": {
+        "n": 75,
+        "mean_a": 0.5803232155039217,
+        "mean_b": 0.5974790515938628,
+        "diff": -0.01715583608994109,
+        "ci_lo": -0.07310700908598998,
+        "ci_hi": 0.03946805047051501,
+        "significant": false
+      },
+      "base-fs vs muse-spark": {
+        "n": 75,
+        "mean_a": 0.5828559023915756,
+        "mean_b": 0.7547551665611697,
+        "diff": -0.1718992641695941,
+        "ci_lo": -0.23570028054078332,
+        "ci_hi": -0.1101180368081826,
+        "significant": true
+      },
+      "base-fs vs rojak-ft": {
+        "n": 75,
+        "mean_a": 0.5828559023915756,
+        "mean_b": 0.5974790515938628,
+        "diff": -0.014623149202287244,
+        "ci_lo": -0.06321642002987682,
+        "ci_hi": 0.03225934208489594,
+        "significant": false
+      },
+      "muse-spark vs rojak-ft": {
+        "n": 75,
+        "mean_a": 0.7547551665611697,
+        "mean_b": 0.5974790515938628,
+        "diff": 0.15727611496730687,
+        "ci_lo": 0.09790569245266077,
+        "ci_hi": 0.21954908119968597,
+        "significant": true
+      }
+    }
+  }
+}

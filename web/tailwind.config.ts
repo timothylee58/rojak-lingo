@@ -11,6 +11,7 @@ const config: Config = {
         card: "var(--card)",
         line: "var(--border)",
         base: "var(--base)",
+        fs: "var(--fs)",
         ft: "var(--ft)",
         ref: "var(--ref)",
       },

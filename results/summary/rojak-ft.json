@@ -1,0 +1,25 @@
+{
+  "model": "rojak-ft",
+  "created": "2026-11-02T12:15:53.269658+00:00",
+  "n_items": 300,
+  "n_draft_items": 0,
+  "metrics": {
+    "instruct": {
+      "n": 75.0,
+      "pass_rate": 0.7733333333333333
+    },
+    "intent": {
+      "n": 75.0,
+      "accuracy": 1.0,
+      "macro_f1": 1.0
+    },
+    "normalize": {
+      "n": 75.0,
+      "chrf": 0.5962168903375958
+    },
+    "translate": {
+      "n": 75.0,
+      "chrf": 0.5974790515938628
+    }
+  }
+}

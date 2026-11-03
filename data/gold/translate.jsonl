@@ -56,7 +56,7 @@
 {"id": "trans-056", "task": "translate", "prompt": "Translate into Mandarin (Simplified): Kedai itu buka dari pukul sembilan hingga pukul sepuluh malam.", "reference": "那家店从早上九点营业到晚上十点。", "languages": ["ms", "zh"], "status": "verified", "meta": {}}
 {"id": "trans-057", "task": "translate", "prompt": "Translate into Mandarin (Simplified): Saya suka makan durian.", "reference": "我喜欢吃榴莲。", "languages": ["ms", "zh"], "status": "verified", "meta": {}}
 {"id": "trans-058", "task": "translate", "prompt": "Translate into Mandarin (Simplified): Cuaca hari ini sangat panas.", "reference": "今天天气非常热。", "languages": ["ms", "zh"], "status": "verified", "meta": {}}
-{"id": "trans-059", "task": "translate", "prompt": "Translate into Mandarin (Simplified): Adik saya belajar di universiti.", "reference": "我弟弟在大学读书。", "languages": ["ms", "zh"], "status": "verified", "meta": {}}
+{"id": "trans-059", "task": "translate", "prompt": "Translate into Mandarin (Simplified): Adik lelaki saya belajar di universiti.", "reference": "我弟弟在大学读书。", "languages": ["ms", "zh"], "status": "verified", "meta": {}}
 {"id": "trans-060", "task": "translate", "prompt": "Translate into Mandarin (Simplified): Bas sekolah sudah sampai.", "reference": "校车已经到了。", "languages": ["ms", "zh"], "status": "verified", "meta": {}}
 {"id": "trans-061", "task": "translate", "prompt": "Translate into Mandarin (Simplified): Jangan lupa bawa payung.", "reference": "别忘了带伞。", "languages": ["ms", "zh"], "status": "verified", "meta": {}}
 {"id": "trans-062", "task": "translate", "prompt": "Translate into Mandarin (Simplified): Mereka tinggal di Kuala Lumpur.", "reference": "他们住在吉隆坡。", "languages": ["ms", "zh"], "status": "verified", "meta": {}}

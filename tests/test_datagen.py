@@ -4,8 +4,14 @@ from typer.testing import CliRunner
 
 from rojak.datagen.contamination import app as contamination_app
 from rojak.datagen.dedupe import dedupe
+from rojak.datagen.generate import (
+    TEACHER_MAX_TOKENS,
+    fetch_items,
+    parse_json_array,
+    teacher_messages,
+    to_row,
+)
 from rojak.datagen.generate import app as generate_app
-from rojak.datagen.generate import parse_json_array, to_row
 from rojak.io import read_jsonl, write_jsonl
 from rojak.schema import TaskType
 
@@ -39,6 +45,40 @@ def test_to_row_rejects_instruct_answers_that_break_their_checks():
 
 def test_to_row_rejects_invalid_intent_label():
     assert to_row(TaskType.intent, {"text": "hi", "label": "angry"}, "t") is None
+
+
+def test_teacher_messages_mix_filter_restricts_mixes():
+    import random
+
+    msgs = teacher_messages(TaskType.normalize, 1, random.Random(0), ["cantonese"])
+    assert "Cantonese" in msgs[1]["content"]
+    msgs = teacher_messages(TaskType.normalize, 1, random.Random(0), ["zzz-no-match"])
+    assert isinstance(msgs[1]["content"], str)  # falls back to full pool, never crashes
+
+
+def test_fetch_items_retries_truncated_json_with_big_budget():
+    import random
+
+    seen: list[dict] = []
+    answers = iter(['[{"rojak": "truncated'] * 3)  # all 3 attempts unparseable
+
+    class Stub:
+        def complete(self, messages, temperature=0.0, max_tokens=4096):
+            seen.append({"temperature": temperature, "max_tokens": max_tokens})
+            return next(answers)
+
+    items, retries = fetch_items(Stub(), TaskType.normalize, 1, random.Random(0))
+    assert items == [] and retries == 2  # 3 attempts, all unparseable
+    assert all(s["max_tokens"] == TEACHER_MAX_TOKENS == 8192 for s in seen)
+
+    answers2 = iter(['[{"broken"', '[{"rojak": "a", "standard": "b"}]'])
+
+    class Stub2(Stub):
+        def complete(self, messages, temperature=0.0, max_tokens=4096):
+            return next(answers2)
+
+    items, retries = fetch_items(Stub2(), TaskType.normalize, 1, random.Random(0))
+    assert len(items) == 1 and retries == 1
 
 
 def test_contamination_flags_leaked_gold_and_drop_cleans(tmp_path):

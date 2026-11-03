@@ -13,6 +13,10 @@ from .dedupe import dedupe
 
 app = typer.Typer(add_completion=False)
 
+# Reasoning teachers can spend half the budget thinking; 20 instruct items need the headroom.
+TEACHER_MAX_TOKENS = 8192
+FETCH_ATTEMPTS = 3
+
 SCENARIOS = [
     "ordering food at a mamak or hawker stall", "traffic and commuting in Klang Valley",
     "workplace chat about deadlines", "e-wallet and online banking", "Grab rides and delivery",
@@ -52,8 +56,11 @@ INSTRUCTIONS = {
 }
 
 
-def teacher_messages(task: TaskType, n: int, rng: random.Random) -> list[dict[str, str]]:
-    scenario, mix, register = rng.choice(SCENARIOS), rng.choice(MIXES), rng.choice(REGISTERS)
+def teacher_messages(
+    task: TaskType, n: int, rng: random.Random, mixes: list[str] | None = None
+) -> list[dict[str, str]]:
+    pool = [m for m in MIXES if mixes is None or any(s.lower() in m.lower() for s in mixes)]
+    scenario, mix, register = rng.choice(SCENARIOS), rng.choice(pool or MIXES), rng.choice(REGISTERS)
     user = (
         f"Generate {n} diverse items for a Malaysian code-switching dataset.\n"
         f"Topic: {scenario}. Language mix: {mix}. Style: {register}.\n"
@@ -105,6 +112,24 @@ def to_row(task: TaskType, d: dict, teacher: str) -> dict | None:
     return {"task": task.value, "prompt": prompt, "response": response, "messages": messages, "teacher": teacher}
 
 
+def fetch_items(
+    client, task: TaskType, n: int, rng: random.Random, mixes: list[str] | None = None
+) -> tuple[list[dict], int]:
+    """One teacher call with retries: truncated JSON parses to nothing, so retry instead of
+    losing the whole call. Returns (items, retries_used)."""
+    for attempt in range(FETCH_ATTEMPTS):
+        items = parse_json_array(
+            client.complete(
+                teacher_messages(task, n, rng, mixes),
+                temperature=0.9,
+                max_tokens=TEACHER_MAX_TOKENS,
+            )
+        )
+        if items:
+            return items, attempt
+    return [], FETCH_ATTEMPTS - 1
+
+
 def mock_items(task: TaskType, n: int, rng: random.Random) -> list[dict]:
     """Deterministic fake teacher so the whole pipeline can be tested offline."""
     out = []
@@ -127,12 +152,14 @@ def main(
     tasks: str = "normalize,intent,instruct,translate",
     calls_per_task: int = typer.Option(30, help="teacher calls per task"),
     items_per_call: int = 20,
+    mixes: str = typer.Option("", help="comma-separated substrings to restrict language mixes"),
     out: Path = Path("data/synthetic/train.jsonl"),
     config: Path = Path("configs/models.yaml"),
     seed: int = 7,
     mock: bool = False,
 ) -> None:
     rng = random.Random(seed)
+    mix_filter = [s.strip() for s in mixes.split(",") if s.strip()] or None
     cfg = load_config(config)
     teacher = cfg["teacher"]
     client = None if mock else build_client(cfg["models"][teacher], Path("results/cache"))
@@ -140,16 +167,15 @@ def main(
     rows: list[dict] = []
     for name in tasks.split(","):
         task = TaskType(name.strip())
-        generated = rejected = 0
+        generated = rejected = retries = 0
         task_rows: list[dict] = []
         for _ in range(calls_per_task):
             if mock:
                 items = mock_items(task, items_per_call, rng)
             else:
                 # temperature > 0 for variety; this also bypasses the response cache on purpose
-                items = parse_json_array(
-                    client.complete(teacher_messages(task, items_per_call, rng), temperature=0.9, max_tokens=4096)
-                )
+                items, used = fetch_items(client, task, items_per_call, rng, mix_filter)
+                retries += used
             for d in items:
                 generated += 1
                 row = to_row(task, d, "mock" if mock else cfg["models"][teacher]["model_id"])
@@ -158,7 +184,10 @@ def main(
                 else:
                     rejected += 1
         kept, dupes = dedupe(task_rows)
-        typer.echo(f"{task.value}: generated {generated}, rejected {rejected}, duplicates {dupes}, kept {len(kept)}")
+        typer.echo(
+            f"{task.value}: generated {generated}, rejected {rejected}, "
+            f"duplicates {dupes}, retries {retries}, kept {len(kept)}"
+        )
         rows += kept
 
     typer.echo(f"wrote {write_jsonl(out, rows)} rows to {out}")

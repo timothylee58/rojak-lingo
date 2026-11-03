@@ -1,4 +1,4 @@
-.PHONY: setup test lint gold datagen check train serve deploy-serve eval report web-data web-dev web-build
+.PHONY: setup test lint gold datagen check train serve deploy-serve eval eval-fewshot significance report web-data web-dev web-build
 
 setup:
 	uv sync --extra dev --extra train
@@ -29,6 +29,12 @@ deploy-serve:
 
 eval:
 	uv run python -m rojak.eval.runner --models all
+
+eval-fewshot:
+	uv run python -m rojak.eval.runner --models base-fs
+
+significance:
+	uv run python -m rojak.eval.significance
 
 report:
 	uv run python -m rojak.report.build

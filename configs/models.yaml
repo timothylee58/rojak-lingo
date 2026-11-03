@@ -7,8 +7,13 @@ models:
     model_id: meta-llama/Llama-3.1-8B-Instruct
     base_url_env: BASE_MODEL_URL
     api_key_env: MODAL_ENDPOINT_KEY
+  base-fs:
+    model_id: meta-llama/Llama-3.1-8B-Instruct
+    base_url_env: BASE_MODEL_URL
+    api_key_env: MODAL_ENDPOINT_KEY
+    prompt_style: fewshot
   rojak-ft:
-    model_id: rojak-v1
+    model_id: rojak-v3
     base_url_env: FT_MODEL_URL
     api_key_env: MODAL_ENDPOINT_KEY
 

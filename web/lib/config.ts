@@ -16,6 +16,7 @@ export const TASKS: {
 // Fixed order so the base-vs-fine-tune comparison always reads the same way.
 export const MODELS: Record<string, { label: string; color: string }> = {
   base: { label: "Base model", color: "bg-base" },
+  "base-fs": { label: "Base + few-shot", color: "bg-fs" },
   "rojak-ft": { label: "Rojak-Lingo fine-tune", color: "bg-ft" },
   "muse-spark": { label: "Muse Spark (reference)", color: "bg-ref" },
 };

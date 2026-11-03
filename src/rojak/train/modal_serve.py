@@ -3,12 +3,16 @@ import subprocess
 import modal
 
 BASE_MODEL = "meta-llama/Llama-3.1-8B-Instruct"
-ADAPTER_NAME = "rojak-v1"
+ADAPTER_NAME = "rojak-v3"
 ADAPTER_PATH = f"/out/{ADAPTER_NAME}/adapter"
 PORT = 8000
 
 app = modal.App("rojak-serve")
-image = modal.Image.debian_slim(python_version="3.12").pip_install("vllm", "huggingface_hub")
+# CUDA devel image: flashinfer JIT-compiles kernels at startup and needs nvcc,
+# which the slim image lacks (engine init fails without it).
+image = modal.Image.from_registry(
+    "nvidia/cuda:12.8.0-devel-ubuntu22.04", add_python="3.12"
+).pip_install("vllm", "huggingface_hub")
 volume = modal.Volume.from_name("rojak-out", create_if_missing=True)
 # Weights are cached on a volume so a cold start does not re-download the base model.
 hf_cache = modal.Volume.from_name("rojak-hf-cache", create_if_missing=True)
@@ -37,7 +41,7 @@ def serve() -> None:
         "--enable-lora",
         "--lora-modules", f"{ADAPTER_NAME}={ADAPTER_PATH}",
         "--max-lora-rank", "16",
-        "--max-model-len", "2048",
+        "--max-model-len", "8192",
         "--api-key", os.environ["MODAL_ENDPOINT_KEY"],
     ]
     subprocess.Popen(cmd)
