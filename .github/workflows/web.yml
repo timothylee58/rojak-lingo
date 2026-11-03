@@ -32,6 +32,8 @@ jobs:
           cache-dependency-path: web/package-lock.json
       - run: npm ci
       - run: npm run lint
+      - name: Include latest evaluated results
+        run: cp ../results/leaderboard.json public/leaderboard.json
       - run: npm run build
         env:
           PAGES_BASE_PATH: "true"
