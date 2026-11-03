@@ -17,7 +17,7 @@ function useLeaderboard(): State {
   const [state, setState] = useState<State>({ status: "loading" });
   useEffect(() => {
     const sample = new URLSearchParams(window.location.search).has("sample");
-    fetch(sample ? "/leaderboard.sample.json" : "/leaderboard.json")
+    fetch(sample ? "./leaderboard.sample.json" : "./leaderboard.json")
       .then((r) => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         return r.json() as Promise<Data>;
