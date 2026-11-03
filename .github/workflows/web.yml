@@ -36,7 +36,7 @@ jobs:
         run: cp ../results/leaderboard.json public/leaderboard.json
       - run: npm run build
         env:
-          PAGES_BASE_PATH: "true"
+          NEXT_PUBLIC_BASE_PATH: "/rojak-lingo"
       - uses: actions/upload-pages-artifact@v3
         with:
           path: web/out

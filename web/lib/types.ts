@@ -21,3 +21,22 @@ export interface Leaderboard {
   sample?: boolean;
   models: Record<string, ModelSummary>;
 }
+
+export interface DigestOutput {
+  output: string;
+  score: number;
+}
+
+export interface DigestItem {
+  id: string;
+  task: string;
+  prompt: string;
+  reference: string;
+  outputs: Record<string, DigestOutput>;
+}
+
+export interface Digest {
+  generated: string;
+  models: string[];
+  items: DigestItem[];
+}

@@ -3,6 +3,14 @@ import { Leaderboard } from "@/components/leaderboard";
 export default function Page() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-16">
+      <nav aria-label="Sections" className="mb-8 flex gap-4 text-sm">
+        <a href="./" aria-current="page" className="font-medium text-fg">
+          Leaderboard
+        </a>
+        <a href="./examples/" className="text-muted">
+          Examples
+        </a>
+      </nav>
       <header className="mb-10">
         <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Rojak-Lingo</h1>
         <p className="mt-3 max-w-2xl text-lg text-muted">

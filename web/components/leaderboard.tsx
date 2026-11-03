@@ -13,11 +13,13 @@ type State =
   | { status: "error"; message: string }
   | { status: "ready"; data: Data };
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 function useLeaderboard(): State {
   const [state, setState] = useState<State>({ status: "loading" });
   useEffect(() => {
     const sample = new URLSearchParams(window.location.search).has("sample");
-    fetch(sample ? "./leaderboard.sample.json" : "./leaderboard.json")
+    fetch(sample ? `${BASE}/leaderboard.sample.json` : `${BASE}/leaderboard.json`)
       .then((r) => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         return r.json() as Promise<Data>;

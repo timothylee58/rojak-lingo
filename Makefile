@@ -41,6 +41,7 @@ report:
 
 web-data:
 	cp results/leaderboard.json web/public/leaderboard.json
+	uv run python -m rojak.report.examples
 
 web-dev:
 	cd web && npm install && npm run dev
